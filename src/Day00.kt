@@ -1,5 +1,3 @@
-import java.lang.Integer.max
-
 fun main() {
     fun part1(input: List<String>): Int {
         return input.size
