@@ -3,17 +3,12 @@ import java.lang.Integer.max
 
 fun main() {
     fun gScore1(s:String):Int{
-        val ss = s.split(",")
-        val aa=ss[0].split("-")
-        val bb=ss[1].split("-")
-        val a0=aa[0].toInt()
-        val a1=aa[1].toInt()
-        val b0=bb[0].toInt()
-        val b1=bb[1].toInt()
-        if (a0<=b0 && b1<=a1) {
+        val x = s.split(Regex("[,-]")).map{it.toInt()}
+        val (l1,r1,l2,r2) = x
+        if (l1<=l2 && r2<=r1) {
             return 1
         }
-        if (b0<=a0 && a1<=b1){
+        if (l2<=l1 && r1<=r2){
             return 1
         }
         return 0
@@ -25,15 +20,9 @@ fun main() {
     }
 
     fun gScore2(s:String):Int {
-        val ss = s.split(",")
-        val aa=ss[0].split("-")
-        val bb=ss[1].split("-")
-        val a0=aa[0].toInt()
-        val a1=aa[1].toInt()
-        val b0=bb[0].toInt()
-        val b1=bb[1].toInt()
-        val l=max(a0,b0)
-        val r=min(a1,b1)
+        val x = s.split(Regex("[,-]")).map{it.toInt()}
+        val (l1,r1,l2,r2) = x
+        val (l, r)= arrayOf(max(l1,l2),min(r1,r2))
         return if (l<=r) 1
         else 0
     }
