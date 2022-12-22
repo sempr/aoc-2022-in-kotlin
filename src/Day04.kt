@@ -1,29 +1,27 @@
-import java.lang.Integer.min
 import java.lang.Integer.max
+import java.lang.Integer.min
 
 fun main() {
-    fun gScore1(s:String):Int{
-        val x = s.split(Regex("[,-]")).map{it.toInt()}
-        val (l1,r1,l2,r2) = x
-        if (l1<=l2 && r2<=r1) {
-            return 1
-        }
-        if (l2<=l1 && r1<=r2){
+    fun gScore1(s: String): Int {
+        val x = s.split(Regex("[,-]")).map { it.toInt() }
+        val (l1, r1, l2, r2) = x
+        if ((l1 <= l2 && r2 <= r1) || (l2 <= l1 && r1 <= r2)) {
             return 1
         }
         return 0
     }
+
     fun part1(input: List<String>): Int {
         var count = 0
         for (it in input) count += gScore1(it)
         return count
     }
 
-    fun gScore2(s:String):Int {
-        val x = s.split(Regex("[,-]")).map{it.toInt()}
-        val (l1,r1,l2,r2) = x
-        val (l, r)= arrayOf(max(l1,l2),min(r1,r2))
-        return if (l<=r) 1
+    fun gScore2(s: String): Int {
+        val x = s.split(Regex("[,-]")).map { it.toInt() }
+        val (l1, r1, l2, r2) = x
+        val (l, r) = arrayOf(max(l1, l2), min(r1, r2))
+        return if (l <= r) 1
         else 0
     }
 
