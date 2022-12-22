@@ -5,10 +5,10 @@ fun main() {
         var mx = 0
         var sm = 0
         for (item in input) {
-            if (item == ""){
-                mx = max(mx,sm)
+            if (item == "") {
+                mx = max(mx, sm)
                 sm = 0
-            }else{
+            } else {
                 sm += item.toInt()
             }
         }
@@ -19,17 +19,17 @@ fun main() {
         var sm = 0
         var nums = arrayOf(0)
         for (item in input) {
-            if (item == ""){
+            if (item == "") {
                 nums += sm
                 sm = 0
-            }else{
+            } else {
                 sm += item.toInt()
             }
         }
         nums += sm
         nums.sort()
         nums.reverse()
-        return nums[0]+nums[1]+nums[2]
+        return nums[0] + nums[1] + nums[2]
     }
 
     // test if implementation meets criteria from the description, like:

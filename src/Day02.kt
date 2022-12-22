@@ -1,12 +1,12 @@
 fun main() {
     fun part1(input: List<String>): Int {
         var score = 0
-        for (it in input){
-            val l = it[0]-'A'
-            val r = it[2]-'X'
-            when ((r-l+3)%3){
-                0 -> score+=3
-                1 -> score+=6
+        for (it in input) {
+            val l = it[0] - 'A'
+            val r = it[2] - 'X'
+            when ((r - l + 3) % 3) {
+                0 -> score += 3
+                1 -> score += 6
             }
             score += r + 1
         }
@@ -16,11 +16,11 @@ fun main() {
     fun part2(input: List<String>): Int {
         var score = 0
         for (it in input) {
-            val l:Int = it[0]-'A'
+            val l: Int = it[0] - 'A'
             when (it[2]) {
-                'Y' -> score += 3+l+1
-                'X' -> score += (l+2)%3+1
-                'Z' -> score += 6 + (l+1)%3+1
+                'Y' -> score += 3 + l + 1
+                'X' -> score += (l + 2) % 3 + 1
+                'Z' -> score += 6 + (l + 1) % 3 + 1
             }
         }
         return score
